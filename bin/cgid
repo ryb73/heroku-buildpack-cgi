@@ -6,8 +6,8 @@ touch tmp/running
 echo "cgid running on port $PORT"
 
 while [ -f tmp/running ]; do
-  # rm -f tmp/connection
-  # mkfifo tmp/connection
-  # bin/request-handler < tmp/connection | bin/nc -c -v -l -p $PORT 0.0.0.0 > tmp/connection
-  bin/nc -c -v -l -p $PORT 0.0.0.0 | bin/request-handler
+  rm -f tmp/connection
+  mkfifo tmp/connection
+  bin/request-handler < tmp/connection | bin/nc -c -v -l -p $PORT 0.0.0.0 > tmp/connection
+  # bin/nc -c -v -l -p $PORT 0.0.0.0 | bin/request-handler
 done
