@@ -2,6 +2,7 @@
 
 # read first line of request into array of elements, eg: ["GET", "/", "HTTP/1.1"]
 read req_line
+echo "req_line: $req_line" >&2
 req_array=($(echo "$req_line" | tr " " "\n"))
 
 # setup CGI environment variables
@@ -16,7 +17,7 @@ export REQUEST_URI="${req_array[1]}"
 export SCRIPT_NAME="$(echo "$REQUEST_URI" | sed 's/\([^?]*\)\?/\1/')"
 export QUERY_STRING="$(echo "$REQUEST_URI" | sed -n 's/[^?]*\?\(.*\)/\1/p')"
 
-echo ">> $REQUEST_METHOD $REQUEST_URI" >&2
+echo ">> request: $REQUEST_METHOD $REQUEST_URI" >&2
 
 # if path contains double dots, block the request as malicious
 if [[ "$SCRIPT_NAME" == *..* ]]; then
