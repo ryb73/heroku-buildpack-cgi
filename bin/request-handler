@@ -67,8 +67,8 @@ EOF
 fi
 
 # if the user requested a directory, try index.html and index.cgi before giving up
-# if [ -d ".$SCRIPT_NAME" ]; then
-if [ "$SCRIPT_NAME" =~ ^/cgi-bin/ ]; then
+if [ -d ".$SCRIPT_NAME" ]; then
+# if [ "$SCRIPT_NAME" =~ ^/cgi-bin/ ]; then
   if [ -f ".$SCRIPT_NAME/index.html" ]; then
     export SCRIPT_NAME="$SCRIPT_NAME/index.html"
   elif [ -f ".$SCRIPT_NAME/index.cgi" ]; then
