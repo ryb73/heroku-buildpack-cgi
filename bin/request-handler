@@ -17,7 +17,7 @@ export REQUEST_URI="${req_array[1]}"
 export SCRIPT_NAME="$(echo "$REQUEST_URI" | sed 's/\([^?]*\)\?/\1/')"
 export QUERY_STRING="$(echo "$REQUEST_URI" | sed -n 's/[^?]*\?\(.*\)/\1/p')"
 
-echo ">> request: $REQUEST_METHOD $REQUEST_URI" >&2
+echo ">> request: $REQUEST_METHOD $REQUEST_URI ($SCRIPT_NAME)" >&2
 
 # if path contains double dots, block the request as malicious
 if [[ "$SCRIPT_NAME" == *..* ]]; then
