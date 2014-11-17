@@ -55,7 +55,7 @@ if [[ ! "$SCRIPT_NAME" =~ ^/cgi-bin/ ]]; then
     cat "public$SCRIPT_NAME"
     exit
   else
-    echo "-> 404 Not Found" >&2
+    echo "-> 404 Not Found.." >&2
     cat <<EOF
 HTTP/1.1 404 Not Found
 Content-Type: text/html
