@@ -14,8 +14,8 @@ export SERVER_PROTOCOL="${req_array[2]}"
 export SERVER_PORT="$PORT"
 export REQUEST_METHOD="${req_array[0]}"
 export REQUEST_URI="${req_array[1]}"
-export SCRIPT_NAME="$(echo "$REQUEST_URI" | sed 's/\([^?]*\)\?/\1/')"
-export QUERY_STRING="$(echo "$REQUEST_URI" | sed -n 's/[^?]*\?\(.*\)/\1/p')"
+export SCRIPT_NAME="$(echo "$REQUEST_URI" | sed -r 's/\([^?]*\).*/\1/')"
+export QUERY_STRING="$(echo "$REQUEST_URI" | sed -r -n 's/[^?]*\?\(.*\)/\1/p')"
 
 echo ">> request: $REQUEST_METHOD $REQUEST_URI ($SCRIPT_NAME)" >&2
 
