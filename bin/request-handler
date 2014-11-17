@@ -34,12 +34,10 @@ fi
 if [[ "$SCRIPT_NAME" == "/" ]]; then
   # if the url is /, redirect to /cgi-bin/
   echo "-> 303 See Other" >&2
-    cat <<EOF
-  HTTP/1.1 303 See Other
-  Location: https://wheres-palin.herokuapp.com/cgi-bin/
-
-
-EOF
+  echo "HTTP/1.1 303 See Other"
+  echo "Location: https://wheres-palin.herokuapp.com/cgi-bin/"
+  echo
+  echo
   exit
 fi
 
