@@ -89,7 +89,7 @@ fi
 while [ ! -f ".$SCRIPT_NAME" ]; do
   if [ -z "$SCRIPT_NAME" ]; then
     # request uri is empty, 404 and exit
-    echo "-> 404 Not Found" >&2
+    echo "-> 404 Not Found!!" >&2
     cat <<EOF
 HTTP/1.1 404 Not Found
 Content-Type: text/html
