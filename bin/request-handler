@@ -33,9 +33,9 @@ fi
 
 if [[ "$SCRIPT_NAME" == "/" ]]; then
   # if the url is /, redirect to /cgi-bin/
-  echo "-> 302 Found" >&2
+  echo "-> 303 See Other" >&2
     cat <<EOF
-  HTTP/1.1 302 Found
+  HTTP/1.1 303 See Other
   Location: /cgi-bin/
 
 
